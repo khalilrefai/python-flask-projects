@@ -1,0 +1,124 @@
+{% include "projects/header.html" %}
+
+{% block body %}
+
+    <!-- OCR App -->
+    <section id="about" style="height:auto;">
+      <div class="wrapper"  style="margin-top:5%; margin-bottom:5%;">
+        <div class="camera">
+            <h1>OCR</h1>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <p></p>
+
+            <img src="{{filename}}" class="ML-img"  style="border:5px solid #555; width:100%; height: auto; max-width: 100%;">
+            <form method="post" action="/ocr" enctype="multipart/form-data" autocomplete="off">
+              <div>
+                  <input type="file" id="actual-btn" name="file" hidden required/>
+                  <label for="actual-btn" style="cursor: pointer; background: #FFFFFF; border:1px solid #D0D0D0; text-align: justify; border-radius: 5%; padding: 1.5%; display: inline-block;">Choose File</label>
+                  <span id="file-chosen">No file chosen</span>
+
+                  <select name="language" id="language" class="form-control" style="margin-bottom:1%; margin-top:1%">
+                  <option value="eng">English</option>
+                  <option value="afr">Afrikaans</option>
+                  <option value="sqi">Albanian</option>
+                  <option value="ara">Arabic</option>
+                  <option value="hye">Armenian</option>
+                  <option value="ben">Bengali</option>
+                  <option value="bos">Bosnian</option>
+                  <option value="cat">Catalan</option>
+                  <option value="hrv">Croatian</option>
+                  <option value="ces">Czech</option>
+                  <option value="dan">Danish</option>
+                  <option value="nld">Dutch</option>
+                  <option value="epo">Esperanto</option>
+                  <option value="est">Estonian</option>
+                  <option value="tgl">Filipino</option>
+                  <option value="fin">Finnish</option>
+                  <option value="fra">French</option>
+                  <option value="deu">German</option>
+                  <option value="ell">Greek</option>
+                  <option value="guj">Gujarati</option>
+                  <option value="hin">Hindi</option>
+                  <option value="hun">Hungarian</option>
+                  <option value="isl">Icelandic</option>
+                  <option value="ind">Indonesian</option>
+                  <option value="ita">Italian</option>
+                  <option value="jpn">Japanese</option>
+                  <option value="jav">Javanese</option>
+                  <option value="kan">Kannada</option>
+                  <option value="khm">Khmer</option>
+                  <option value="kor">Korean</option>
+                  <option value="lat">Latin</option>
+                  <option value="lav">Latvian</option>
+                  <option value="mkd">Macedonian</option>
+                  <option value="mal">Malayalam</option>
+                  <option value="mar">Marathi</option>
+                  <option value="nep">Nepali</option>
+                  <option value="nor">Norwegian</option>
+                  <option value="pol">Polish</option>
+                  <option value="por">Portuguese</option>
+                  <option value="ron">Romanian</option>
+                  <option value="rus">Russian</option>
+                  <option value="srp">Serbian</option>
+                  <option value="sin">Sinhala</option>
+                  <option value="slk">Slovak</option>
+                  <option value="spa">Spanish</option>
+                  <option value="sun">Sundanese</option>
+                  <option value="swa">Swahili</option>
+                  <option value="swe">Swedish</option>
+                  <option value="tam">Tamil</option>
+                  <option value="tel">Telugu</option>
+                  <option value="tha">Thai</option>
+                  <option value="tur">Turkish</option>
+                  <option value="ukr">Ukrainian</option>
+                  <option value="urd">Urdu</option>
+                  <option value="vie">Vietnamese</option>
+                  <option value="cym">Welsh</option>
+                  </select>
+
+                <input class="form-control" type="submit" value="Submit" style="color:#000000">
+              </div>
+
+              {% if message %}
+                  {% if error == "noError" %}
+                    <div class="success-msg" style="margin-top:2%; margin-bottom:2%;">
+                      <i class="fa fa-check"></i>
+                      {{ message }}
+                    </div>
+                    <p style="background: #F5F5F5; text-align: justify; display: inline-block; border-radius: 5%; padding: 2%;">{{ text }}</p>
+                  {% else %}
+                    <div class="error-msg" style="margin-top:2%; margin-bottom:2%;">
+                      <i class="fa fa-times-circle"></i>
+                      {{ message }}
+                    </div>
+                  {% endif %}
+              {% else %}
+                  <p style="background: #F5F5F5; text-align: justify; display: inline-block; border-radius: 5%; padding: 2%; margin-top:2%; margin-bottom:2%;">{{ text }}</p>
+              {% endif %}
+
+        </form>
+        </div>
+        <div class="blurb" style="margin-left:5%;">
+          <h2><strong>Description</strong></h2>
+          <p style="text-align: justify;">
+            This application allows the conversion of text from images or scanned documents into machine-readable text. It involves analyzing the shapes and patterns of text
+            characters in an image and then using pattern recognition techniques to recognize and extract the text content.
+            <br>
+            <a href="./static/img/temp/init/image_to_text.png" download>Test File Download <i class="fa fa-download"></i></a>
+            <br>
+            <i class="fa fa-exclamation"></i> The following file extensions are the only ones allowed: BMP, JPG, JPEG, PNG, PPM, RAS, SR, TIF, and TIFF.
+          </p>
+          <div class="social">
+              <a href="mailto:khalil.refai.pro@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/khalil-refai-34b6a690/" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a href="https://github.com/KhalilRefai/" target="_blank"><i class="fa fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock body %}
+
+{% include "projects/footer.html" %}

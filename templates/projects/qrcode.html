@@ -1,0 +1,70 @@
+{% include "projects/header.html" %}
+
+{% block body %}
+
+    <!-- Qrcode App -->
+    <section id="about" style="height:auto;">
+      <div class="wrapper" style="margin-top:5%; margin-bottom:5%;">
+        <div class="camera">
+            <h1>QRCode</h1>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <p></p>
+
+            <h5 style="margin-bottom:2%; margin-top:2%">Generate</h5>
+            <form action="/genqrcode" method="get" target="_blank" autocomplete="off">
+                <textarea id="data" class="form-control" name="data" rows="2" cols="40" placeholder="QRCode info ..." style="margin-top:2%; margin-bottom:2%;"></textarea>
+                <input class="form-control" type="submit" value="Submit">
+            </form>
+
+            <h5 style="margin-bottom:2%; margin-top:2%">Decode</h5>
+            <img src="{{filename}}" class="ML-img" style="border:5px solid #555; width:30%; height: auto; max-width: 100%;">
+            <form method="post" action="/decqrcode" enctype="multipart/form-data" autocomplete="off">
+              <div>
+                  <input type="file" id="actual-btn" name="file" hidden/>
+                  <label for="actual-btn" style="cursor: pointer; background: #FFFFFF; border:1px solid #D0D0D0; text-align: justify; border-radius: 5%; padding: 1.5%; display: inline-block;">Choose File</label>
+                  <span id="file-chosen">No file chosen</span>
+                  <br>
+
+                  <input class="form-control" type="submit" value="Submit">
+              </div>
+
+              {% if message %}
+                  {% if error == "noError" %}
+                    <div class="success-msg" style="margin-top:2%; margin-bottom:2%;">
+                      <i class="fa fa-check"></i>
+                      {{ message }}
+                    </div>
+                    <p style="text-align: justify; display: inline-block; border-radius: 5%; padding: 2%;">{{ text }}</p>
+                  {% else %}
+                    <div class="error-msg">
+                      <i class="fa fa-times-circle"></i>
+                      {{ message }}
+                    </div>
+                  {% endif %}
+              {% else %}
+                  <p style="text-align: justify; display: inline-block; border-radius: 5%; padding: 2%; margin-top:2%; margin-bottom:2%;">{{ text }}</p>
+              {% endif %}
+            </form>
+
+        </div>
+        <div class="blurb" style="margin-left:5%;">
+          <h2><strong>Description</strong></h2>
+          <p style="text-align: justify;">
+            This application simplifies the generation and decoding of QR codes, providing users with an effortless solution for creating customized codes and extracting information from existing ones.
+           <br>
+            <i class="fa fa-exclamation"></i> The following file extensions are the only ones allowed: BMP, JPG, JPEG, PNG, PPM, RAS, SR, TIF, and TIFF.
+          </p>
+          <div class="social">
+              <a href="mailto:khalil.refai.pro@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/khalil-refai-34b6a690/" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a href="https://github.com/KhalilRefai/" target="_blank"><i class="fa fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock body %}
+
+{% include "projects/footer.html" %}

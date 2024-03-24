@@ -1,0 +1,58 @@
+{% include "projects/header.html" %}
+
+{% block body %}
+    <!-- Weather App -->
+    <section id="about" style="height:auto;">
+      <div class="wrapper" style="margin-top:5%; margin-bottom:5%;">
+        <div class="camera">
+            <h1>Weather</h1>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <p></p>
+            <form method="post" action="/weather" enctype="multipart/form-data" autocomplete="off">
+              <input type="text" class="form-control" name="city" placeholder="Enter a country or a city name ..." style="margin-top:2%; margin-bottom:2%;">
+              {% if message %}
+                  {% if error == "noError" %}
+                    <div class="success-msg" style="margin-top:2%; margin-bottom:2%;">
+                      <i class="fa fa-check"></i>
+                      {{ message }}
+                    </div>
+                    <p style="background: #F5F5F5; text-align: justify; display: inline-block; border-radius: 5%; padding: 2%;">
+                        <b>City name :</b> {{data.cityname}}
+                        <br><b>Country code :</b> {{data.country_code}}
+                        <br><b>Coordinate :</b> {{data.coordinate}}
+                        <br><b>Temperature :</b> {{data.temp_cel}}
+                        <br><b>Pressure :</b> {{data.pressure}}
+                        <br><b>Humidity :</b> {{data.humidity}}
+                    </p>
+                  {% else %}
+                    <div class="error-msg" style="margin-top:2%; margin-bottom:2%;">
+                      <i class="fa fa-times-circle"></i>
+                      {{ message }}
+                    </div>
+                  {% endif %}
+              {% endif %}
+            </form>
+        </div>
+        <div class="blurb" style="margin-left:5%;">
+          <h2><strong>Description</strong></h2>
+          <p style="text-align: justify;">
+            This app utilizes a weather API (<a href="https://openweathermap.org/api" style="color:#3366CC; text-decoration: underline;" target="_blank">link</a>)
+            that provides accurate and up-to-date weather information for your location or any other location around the world.
+            Get current conditions in an easy-to-read format.
+          </p>
+          <div class="social">
+              <a href="mailto:khalil.refai.pro@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/khalil-refai-34b6a690/" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a href="https://github.com/KhalilRefai/" target="_blank"><i class="fa fa-github"></i></a>
+          </div>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </section>
+
+{% endblock body %}
+
+{% include "projects/footer.html" %}
