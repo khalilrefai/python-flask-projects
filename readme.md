@@ -1,4 +1,4 @@
-# Flask Projects README
+# Python Flask Projects
 
 This repository contains three Python Flask projects: a Weather App, a QR Code App, and an OCR (Optical Character Recognition) Image to Text App. Each app serves a different purpose and is built using Flask, a lightweight web framework for Python.
 
