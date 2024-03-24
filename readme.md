@@ -45,11 +45,13 @@ python app.py
 The projects utilize the following dependencies:
 
 - Flask
-- requests
+- Flask_QRcode
+- opencv_python
 - Pillow
 - pytesseract
-- opencv-python
 - python-dotenv
+- pyzbar
+- Werkzeug
 
 These dependencies are listed in the requirements.txt file and will be installed automatically during the setup process.
 
