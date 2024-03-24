@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 1. Start the Flask server:
 
-python flask_app.py
+python app.py
 
 2. Open a web browser and navigate to http://localhost:8080 to access the applications.
 
